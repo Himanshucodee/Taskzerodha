@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+        <meta charset="UTF-8">
+        <title></title>
+</head>
+
+<body>
+    <div class="center">
+        <vue-slider id="slider">
+
+            <div v-for="number in [currentNumber]" transition="fade">
+                <h3>{{quotes[Math.abs(currentNumber) % quotes.length]}}</h3>
+                <img :src="images[Math.abs(currentNumber) % images.length]" v-on:mouseover="stopRotation" v-on:mouseout="startRotation" />
+            </div>
+            <p><button @click="prev" type="button" class="btn  btn-sm raised"><a>Previous</a></button>
+            <button @click="next" type="button" class="btn btn-sm raised"><a>Next</a></button>
+            
+                <!--<a @click="prev"><b>Previous<b></a> | <a @click="next"><b>Next<b></a>-->
+            </p>
+
+        </vue-slider>
+    </div>
+
+
+    <script src="vue.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
